@@ -10,6 +10,6 @@ class Destination(models.Model):
     offer = models.BooleanField(default=False)
 
 class UserList(models.Model):
-    username = models.CharField(max_length=)
-    email = models.EmailField(max_length=254)
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254,blank=True)
     coupon = models.CharField(max_length=100)

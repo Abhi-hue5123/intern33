@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'socius.apps.SociusConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,10 @@ USE_L10N = True
 USE_TZ = True
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 

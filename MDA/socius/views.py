@@ -1,5 +1,12 @@
 from django.shortcuts import render
 from .models import Destination
+from .models import UserList
+from .resources import UserListResource
+from django.contrib import messages
+from tablib import Dataset 
+from django.http import HttpResponse
+
+
 # Create your views here.
 def index(response):
     
@@ -29,3 +36,28 @@ def index(response):
     dests = Destination.objects.all()
 
     return render(response, "socius/index.html", {'dests': dests})
+
+
+def simple_upload(request):
+    if request.method == 'POST':
+        user_list = UserListResource()
+        dataset = Dataset()
+        new_person = request.FILES['myfile']
+
+        if not new_person.name.endswith('xlsx'):
+            messages.info(request, 'Wrong Format')
+            return render(request, 'socius/upload.html')
+
+        imported_data = dataset.load(new_person.read(),format='xlsx')
+        #print(imported_data)
+        for data in imported_data:
+        	#print(data[1])
+        	value = UserList(
+        		data[0],
+        		data[1],
+        		 data[2],
+        		 data[3]
+        		)
+        	value.save() 
+    return render(request, 'socius/upload.html')
+
