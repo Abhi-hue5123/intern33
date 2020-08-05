@@ -9,3 +9,7 @@ class Destination(models.Model):
     price = models.IntegerField(default=0)
     offer = models.BooleanField(default=False)
 
+class UserList(models.Model):
+    username = models.CharField(max_length=)
+    email = models.EmailField(max_length=254)
+    coupon = models.CharField(max_length=100)
