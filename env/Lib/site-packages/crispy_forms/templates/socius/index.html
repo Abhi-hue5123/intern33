@@ -28,18 +28,25 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-							<div class="logo"><a href="index.html">Travello</a></div>
+							<div class="logo"><a href="index.html">Socius</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="index.html">Home</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="contact.html">Team</a></li>
 
 									{% if user.is_authenticated %}
 									<li>Hello, {{user.first_name}}</li>
 									<li><a href="accounts/logout">Logout</a></li>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Something else here</a>
+									</div>
 									{% else %}
 									<li><a href="accounts/register">Register</a></li>
 									<li><a href="accounts/login">Login</a></li>
+									
 									{% endif %}
 
 								</ul>

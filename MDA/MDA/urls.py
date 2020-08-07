@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', v.index, name="index"),
+    path('index.html', v.index, name="index"),
     path('accounts/',include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('adduser/',v.simple_upload,name='simple_upload'),
